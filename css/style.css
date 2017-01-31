@@ -1553,3 +1553,17 @@ code {
   border-bottom-left-radius: 3px;
   font-family: Consolas, Monaco, Menlo;
   margin: auto 3px; }
+
+input.st-ui-search-input, .st-default-search-input {
+  width: auto !important; }
+
+blockquote, .stressed {
+  padding: 20px 20px 1px;
+  background-color: #f7f7f7;
+  border-left: #b4b4b4 4px solid; }
+
+blockquote:before, .stressed-quote:before {
+  content: none !important; }
+
+figure.highlight {
+  border: 1px solid #ccc; }
