@@ -135,12 +135,4 @@
     
   
   
-    
-    <entry>
-      <title><![CDATA[search]]></title>
-      <url>http://bluebells.tk/search/index.html</url>
-      <content type="html"><![CDATA[<div class="st-search-container"></div>]]></content>
-    </entry>
-    
-  
 </search>
