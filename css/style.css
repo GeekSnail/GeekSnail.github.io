@@ -1537,3 +1537,19 @@ em.search-keyword {
   font-weight: bold;
   font-style: normal;
   color: #01579f; }
+
+/* custom style*/
+code {
+  line-height: 20px !important;
+  display: inline;
+  padding: 2px 4px;
+  color: #d14;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  /*white-space: nowrap;*/
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  font-family: Consolas, Monaco, Menlo;
+  margin: auto 3px; }

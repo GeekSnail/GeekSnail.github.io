@@ -112,21 +112,38 @@
   </entry>
   
   <entry>
-    <title>it?</title>
-    <link href="http://bluebells.tk/2016/05/06/it/"/>
-    <id>http://bluebells.tk/2016/05/06/it/</id>
+    <title>在网页中添加公式</title>
+    <link href="http://bluebells.tk/2016/05/06/%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%85%AC%E5%BC%8F/"/>
+    <id>http://bluebells.tk/2016/05/06/在网页中添加公式/</id>
     <published>2016-05-06T15:42:42.000Z</published>
-    <updated>2017-01-31T05:59:37.617Z</updated>
+    <updated>2017-01-31T07:22:05.451Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="mathjax"><a href="#mathjax" class="headerlink" title="mathjax"></a>mathjax</h3><p>$$\mathop{ a}^ ̂ =A_1 - \sqrt{3(A_2-A1^2)} = \overline{X} - \sqrt{\frac{3}{n} \sum{i=1}^{n}(X_i - \overline{X})^2},$$</p>
+    <content type="html"><![CDATA[<h3 id="TeX和LaTeX"><a href="#TeX和LaTeX" class="headerlink" title="TeX和LaTeX"></a>TeX和LaTeX</h3><p>使用 TeX 和 LaTeX 格式的公式使用 公式分隔符 环绕公式，即告知MathJax页面哪个部分代码公式和它的基本格式。 这里有两种形式的公式：</p>
+<ol>
+<li>包含在段落之中的</li>
+<li>独立于其他文字的</li>
+</ol>
+<p>默认的公式分隔符是 <code>$$...$$</code> 和 <code>\[...\]</code> ，还有 <code>\(...\)</code> 常用于段落中的公式。请特别注意， <code>\(...\)</code> 分隔符 不是 默认使用的。美元符号$常常在其他情况下使用，这会导致本文被错误的当做公式解析了。</p>
+<p>例如，使用美元分隔符的情况下， ”… the cost is $2.50 for the first one, and $2.00 for each additional one …” 会被处理为 “2.50 for the first one, and” 。因为介于美元符号之间的文字内容被当做公式处理了。基于这样的理由，如果你想使用美元分隔符，请在配置文件中显示声明:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/x-mathjax-config"</span>&gt;</div><div class="line">MathJax.Hub.Config(&#123;</div><div class="line">  <span class="attr">tex2jax</span>: &#123;<span class="attr">inlineMath</span>: [[<span class="string">'$'</span>,<span class="string">'$'</span>], [<span class="string">'\\('</span>,<span class="string">'\\)'</span>]]&#125;</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"path-to-mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>参考 <a href="http://mathjax-chinese-doc.readthedocs.io/en/latest/options/tex2jax.html#configure-tex2jax" target="_blank" rel="external">tex2jax配置 options</a> 页面来为 tex2jax 处理器指定更多的参数。 参考 <a href="http://mathjax-chinese-doc.readthedocs.io/en/latest/tex.html#tex-support" target="_blank" rel="external">TeX和LaTeX</a> 页面了解更多MathJax对Tex格式的支持和美元符号的使用问题。</p>
+<p>这是一个完整的使用TeX公式的页面例子(<a href="http://cdn.mathjax.org/mathjax/2.0-latest/test/sample-tex.html" target="_blank" rel="external">在线查看</a>):</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--这是一个完整的使用TeX公式的页面例子--&gt;</span></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>MathJax TeX Test Page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/x-mathjax-config"</span>&gt;</span><span class="javascript"></span></div><div class="line">  MathJax.Hub.Config(&#123;<span class="attr">tex2jax</span>: &#123;<span class="attr">inlineMath</span>: [[<span class="string">'$'</span>,<span class="string">'$'</span>], [<span class="string">'\\('</span>,<span class="string">'\\)'</span>]]&#125;&#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span></span></div><div class="line">  <span class="attr">src</span>=<span class="string">"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span>&gt;<span class="undefined"></span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are</div><div class="line">$$x = &#123;-b \pm \sqrt&#123;b^2-4ac&#125; \over 2a&#125;.$$</div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are<br>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$<br>转载自：<a href="http://mathjax-chinese-doc.readthedocs.io/en/latest/start.html" target="_blank" rel="external">MathJax Chinese Doc 2.0 documentation</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;mathjax&quot;&gt;&lt;a href=&quot;#mathjax&quot; class=&quot;headerlink&quot; title=&quot;mathjax&quot;&gt;&lt;/a&gt;mathjax&lt;/h3&gt;&lt;p&gt;$$\mathop{ a}^ ̂ =A_1 - \sqrt{3(A_2-A1^2)} = \over
+      &lt;h3 id=&quot;TeX和LaTeX&quot;&gt;&lt;a href=&quot;#TeX和LaTeX&quot; class=&quot;headerlink&quot; title=&quot;TeX和LaTeX&quot;&gt;&lt;/a&gt;TeX和LaTeX&lt;/h3&gt;&lt;p&gt;使用 TeX 和 LaTeX 格式的公式使用 公式分隔符 环绕公式，即告知MathJ
     
     </summary>
     
+      <category term="前端" scheme="http://bluebells.tk/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="mathjax" scheme="http://bluebells.tk/tags/mathjax/"/>
+    
+      <category term="LaTeX" scheme="http://bluebells.tk/tags/LaTeX/"/>
     
   </entry>
   
