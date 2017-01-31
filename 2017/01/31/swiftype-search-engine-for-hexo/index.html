@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="What if I can do it?"><title>Hexo博客添加站内搜索–Swiftype–并显示结果页 | 风铃草</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Hexo博客添加站内搜索–Swiftype–并显示结果页</h1><a id="logo" href="/.">风铃草</a><p class="description">静心写一点文字^_^</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Hexo博客添加站内搜索–Swiftype–并显示结果页</h1><div class="post-meta">Jan 31, 2017<span> | </span><span class="category"><a href="/categories/前端/">前端</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2017/01/31/swiftype-search-engine-for-hexo/" href="/2017/01/31/swiftype-search-engine-for-hexo/#comments" class="ds-thread-count"></a><div class="post-content"><blockquote>
+<p>Swiftype可以为网站及移动app提供内置搜索引掣服务。其部署十分简单，只须输入URL地址平台即可执行对用户网站的抓取，插入JS代码嵌入网站就即完成搜索引擎的创建。Swiftype还提供了分析服务，供网站检索分析用户的搜索行为和使用偏好。Swiftype还支持对搜索结果排序进行定制。</p>
+</blockquote>
+<p>我的博客采用<code>Hexo</code>搭建，主题是基于<code>maupassant</code>。它能提供四种搜索，分别是：</p>
+<ul>
+<li>google_search</li>
+<li>baidu_search</li>
+<li>swiftype</li>
+<li>tinysou</li>
+</ul>
+<p>由于是刚建站，所以只试了<strong>百度</strong>，发现结果页都是在百度，于是尝试采用<strong>Swiftype</strong>的站内搜索功能，下面是实现步骤：</p>
+<hr>
+<ol>
+<li><p>到<a href="https://swiftype.com" target="_blank" rel="external">swiftype</a>上注册账号，我用自己的邮箱失败了，提示要用工作邮箱，于是我用了自己在学校注册的邮箱，发现可以了，接着输入自己网站的<a href="http://bluebells.tk/">bluebells.tk</a>，根据指引建立自己站点对应的Engine；</p>
+</li>
+<li><p>点击左侧的『install search』选项卡，在给出的一段js代码中复制<code>“install”</code>后面的<strong>key</strong>，将其添加到主题目录下的<code>_config.yml</code>文件；</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">swiftype: ## Your swiftype_key, e.g. m7b11ZrsT8Me7gzApciT</div></pre></td></tr></table></figure>
+</li>
+<li><p>接着点击<strong>Add a Search Field</strong>（即添加一个搜索框）。由于主题<code>layout</code>下已包含了搜索框组件<code>_widget\search.jade</code>，且已有<strong>Swiftype</strong>代码：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if theme.swiftype</div><div class="line">  .widget</div><div class="line">	input.st-default-search-input(placeholder=&apos;Search&apos; type=&apos;text&apos;)</div></pre></td></tr></table></figure>
+<p> <img src="http://okmotl0nl.bkt.clouddn.com/image/jpg/swiftype-search-field.jpg" alt=""><br> 也就是图上的：</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"st-default-search-input"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p> 所以这一步我就跳过了。<br> 若主题文件下没有搜索框，则可以在自己相应的组件文件夹中新建一个搜索框组件。</p>
+</li>
+<li><p>然后点击<strong>Results Container</strong>（即配置搜索结果页）。默认是采用图中第一个弹出式容器，我希望是在根目录下的<code>/search/</code>页面上显示，所以勾选了<strong>“show on a dedicated search results page”</strong>，并将<code>/search/</code>填入<code>path</code>中。<br><img src="http://okmotl0nl.bkt.clouddn.com/image/jpg/swiftype-search-results-container.jpg" alt=""></p>
+</li>
+<li><p>在<code>hexo</code>的<code>source</code>目录下建立一个<code>search</code>文件夹，并在其中新建一个<code>index.md</code>文件，其内容为：</p>
+ <figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">layout: search</div><div class="line"><span class="section">title: search</span></div><div class="line">---</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"st-search-container"</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div></pre></td></tr></table></figure>
+</li>
+<li><p>至此，配置基本完成，<code>hexo d -g</code>重新部署一下即可出现站内搜索功能。搜索框的样式可根据个人爱好在CSS文件中修改。</p>
+</li>
+<li><p>管理搜索内容可在『Content』选项卡中查看，对搜索结果自定义排序及显示在『Results Rankings』选项卡中设置。</p>
+</li>
+</ol>
+<hr>
+<h4 id="参考链接：Hexo静态博客添加站内搜索–Swiftype"><a href="#参考链接：Hexo静态博客添加站内搜索–Swiftype" class="headerlink" title="参考链接：Hexo静态博客添加站内搜索–Swiftype"></a>参考链接：<a href="http://www.jianshu.com/p/2010ad07d960" target="_blank" rel="external">Hexo静态博客添加站内搜索–Swiftype</a></h4></div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://bluebells.tk/2017/01/31/swiftype-search-engine-for-hexo/" data-id="ciylfli4j0002awvyhrofcjq8" class="article-share-link">分享到</a><div class="tags"><a href="/tags/Hexo/">Hexo</a><a href="/tags/Swiftype/">Swiftype</a></div><div class="post-nav"><a href="/2016/12/01/《麦田里的守望者》摘抄/" class="next">《麦田里的守望者》摘抄</a></div><div data-thread-key="2017/01/31/swiftype-search-engine-for-hexo/" data-title="Hexo博客添加站内搜索–Swiftype–并显示结果页" data-url="http://bluebells.tk/2017/01/31/swiftype-search-engine-for-hexo/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2017/01/31/swiftype-search-engine-for-hexo/" data-title="Hexo博客添加站内搜索–Swiftype–并显示结果页" data-url="http://bluebells.tk/2017/01/31/swiftype-search-engine-for-hexo/" data-author-key="1" class="ds-thread"></div><!-- 多说公共JS代码 start (一个网页只需插入一次)--><script type="text/javascript">var duoshuoQuery = {short_name:"bluebells"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0]
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();</script><!-- 多说公共JS代码 end--></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><input placeholder="Search" type="text" class="st-default-search-input"/></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读点文字/">读点文字</a><span class="category-list-count">2</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/麦田里的守望者/" style="font-size: 15px;">麦田里的守望者</a> <a href="/tags/LaTeX/" style="font-size: 15px;">LaTeX</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Swiftype/" style="font-size: 15px;">Swiftype</a> <a href="/tags/Mathjax/" style="font-size: 15px;">Mathjax</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/swiftype-search-engine-for-hexo/">Hexo博客添加站内搜索–Swiftype–并显示结果页</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/01/《麦田里的守望者》摘抄/">《麦田里的守望者》摘抄</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/你好！/">你好！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/在网页中添加公式/">在网页中添加公式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/hello-world/">Hello World</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">风铃草.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'bluebells'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+_st('install','dx1jXSZxyFaZ5XVQyzrc','2.0.0');
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-86939685-1','auto');ga('send','pageview');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d02f4c4e3f7aa6a2c3ef72e02fcfeeab";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
