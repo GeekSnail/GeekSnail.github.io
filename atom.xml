@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>风铃草</title>
-  <subtitle>静心写一点文字^_^</subtitle>
-  <link href="/atom.xml" rel="self"/>
+<search>
   
-  <link href="http://bluebells.tk/"/>
-  <updated>2017-01-31T14:06:11.913Z</updated>
-  <id>http://bluebells.tk/</id>
   
-  <author>
-    <name>李明泽</name>
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hexo博客添加站内搜索–Swiftype</title>
-    <link href="http://bluebells.tk/2017/01/31/swiftype-search-engine-for-hexo/"/>
-    <id>http://bluebells.tk/2017/01/31/swiftype-search-engine-for-hexo/</id>
-    <published>2017-01-31T09:39:32.000Z</published>
-    <updated>2017-01-31T14:06:11.913Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
+    <entry>
+      <title><![CDATA[Hexo博客添加站内搜索–Swiftype]]></title>
+      <url>http://bluebells.tk/2017/01/31/swiftype-search-engine-for-hexo/</url>
+      <content type="html"><![CDATA[<blockquote>
 <p>Swiftype可以为网站及移动app提供内置搜索引掣服务。其部署十分简单，只须输入URL地址平台即可执行对用户网站的抓取，插入JS代码嵌入网站就即完成搜索引擎的创建。Swiftype还提供了分析服务，供网站检索分析用户的搜索行为和使用偏好。Swiftype还支持对搜索结果排序进行定制。</p>
 </blockquote>
 <p>我的博客采用<code>Hexo</code>搭建，主题是基于<code>maupassant</code>。它能提供四种搜索，分别是：</p>
@@ -48,31 +32,12 @@
 <h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>至此，配置基本完成，<code>hexo d -g</code>重新部署一下即可出现站内搜索功能。搜索框的样式可根据个人爱好在CSS文件中修改。<br>管理搜索内容可在『Content』选项卡中查看，对搜索结果自定义排序及显示在『Results Rankings』选项卡中设置。</p>
 <hr>
 <h4 id="参考链接：Hexo静态博客添加站内搜索–Swiftype"><a href="#参考链接：Hexo静态博客添加站内搜索–Swiftype" class="headerlink" title="参考链接：Hexo静态博客添加站内搜索–Swiftype"></a>参考链接：<a href="http://www.jianshu.com/p/2010ad07d960" target="_blank" rel="external">Hexo静态博客添加站内搜索–Swiftype</a></h4>]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Swiftype可以为网站及移动app提供内置搜索引掣服务。其部署十分简单，只须输入URL地址平台即可执行对用户网站的抓取，插入JS代码嵌入网站就即完成搜索引擎的创建。Swiftype还提供了分析服务，供网站检索分析用户的搜索行为和使用偏好。Swi
-    
-    </summary>
-    
-      <category term="前端" scheme="http://bluebells.tk/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="Hexo" scheme="http://bluebells.tk/tags/Hexo/"/>
-    
-      <category term="Swiftype" scheme="http://bluebells.tk/tags/Swiftype/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《麦田里的守望者》摘抄</title>
-    <link href="http://bluebells.tk/2016/12/01/%E3%80%8A%E9%BA%A6%E7%94%B0%E9%87%8C%E7%9A%84%E5%AE%88%E6%9C%9B%E8%80%85%E3%80%8B%E6%91%98%E6%8A%84/"/>
-    <id>http://bluebells.tk/2016/12/01/《麦田里的守望者》摘抄/</id>
-    <published>2016-12-01T04:13:26.000Z</published>
-    <updated>2017-01-31T05:35:26.077Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://okmotl0nl.bkt.clouddn.com/image/jpg/JD-SALINGER-quote.jpg" alt=""><br><a id="more"></a></p>
+    <entry>
+      <title><![CDATA[《麦田里的守望者》摘抄]]></title>
+      <url>http://bluebells.tk/2016/12/01/%E3%80%8A%E9%BA%A6%E7%94%B0%E9%87%8C%E7%9A%84%E5%AE%88%E6%9C%9B%E8%80%85%E3%80%8B%E6%91%98%E6%8A%84/</url>
+      <content type="html"><![CDATA[<p><img src="http://okmotl0nl.bkt.clouddn.com/image/jpg/JD-SALINGER-quote.jpg" alt=""><br><a id="more"></a></p>
 <p style="text-align: center;">2</p>
 
 <p style="text-align: left;">　　有些人老得快死了，就像老斯宾塞那样，可是买了条毯子就会高兴得要命。</p>
@@ -125,52 +90,20 @@
 <p style="text-align: center;">26</p>
 
 <p style="text-align: left;">　　老实说，我真不知道自己有什么想法。我很抱歉我竟跟这许多人谈起这事。我只知道我很想念我所谈到的每一个人。</p>]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://okmotl0nl.bkt.clouddn.com/image/jpg/JD-SALINGER-quote.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="读点文字" scheme="http://bluebells.tk/categories/%E8%AF%BB%E7%82%B9%E6%96%87%E5%AD%97/"/>
-    
-    
-      <category term="麦田里的守望者" scheme="http://bluebells.tk/tags/%E9%BA%A6%E7%94%B0%E9%87%8C%E7%9A%84%E5%AE%88%E6%9C%9B%E8%80%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>你好！</title>
-    <link href="http://bluebells.tk/2016/05/06/%E4%BD%A0%E5%A5%BD%EF%BC%81/"/>
-    <id>http://bluebells.tk/2016/05/06/你好！/</id>
-    <published>2016-05-06T15:45:27.000Z</published>
-    <updated>2017-01-31T09:14:29.334Z</updated>
-    
-    <content type="html"><![CDATA[<p style="text-align:center; "><strong>生活</strong>不止眼前的苟且 还有<strong>诗和远方</strong>的田野。</p>
+    <entry>
+      <title><![CDATA[你好！]]></title>
+      <url>http://bluebells.tk/2016/05/06/%E4%BD%A0%E5%A5%BD%EF%BC%81/</url>
+      <content type="html"><![CDATA[<p style="text-align:center; "><strong>生活</strong>不止眼前的苟且 还有<strong>诗和远方</strong>的田野。</p>
 
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p style=&quot;text-align:center; &quot;&gt;&lt;strong&gt;生活&lt;/strong&gt;不止眼前的苟且 还有&lt;strong&gt;诗和远方&lt;/strong&gt;的田野。&lt;/p&gt;
-
-
-    
-    </summary>
-    
-      <category term="读点文字" scheme="http://bluebells.tk/categories/%E8%AF%BB%E7%82%B9%E6%96%87%E5%AD%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>在网页中添加公式</title>
-    <link href="http://bluebells.tk/2016/05/06/%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%85%AC%E5%BC%8F/"/>
-    <id>http://bluebells.tk/2016/05/06/在网页中添加公式/</id>
-    <published>2016-05-06T15:42:42.000Z</published>
-    <updated>2017-01-31T11:47:42.664Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="TeX和LaTeX"><a href="#TeX和LaTeX" class="headerlink" title="TeX和LaTeX"></a>TeX和LaTeX</h3><p>使用 TeX 和 LaTeX 格式的公式使用 公式分隔符 环绕公式，即告知MathJax页面哪个部分代码公式和它的基本格式。 这里有两种形式的公式：</p>
+    <entry>
+      <title><![CDATA[在网页中添加公式]]></title>
+      <url>http://bluebells.tk/2016/05/06/%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%85%AC%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<h3 id="TeX和LaTeX"><a href="#TeX和LaTeX" class="headerlink" title="TeX和LaTeX"></a>TeX和LaTeX</h3><p>使用 TeX 和 LaTeX 格式的公式使用 公式分隔符 环绕公式，即告知MathJax页面哪个部分代码公式和它的基本格式。 这里有两种形式的公式：</p>
 <ol>
 <li>包含在段落之中的</li>
 <li>独立于其他文字的</li>
@@ -183,30 +116,12 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--这是一个完整的使用TeX公式的页面例子--&gt;</span></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>MathJax TeX Test Page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/x-mathjax-config"</span>&gt;</span><span class="javascript"></span></div><div class="line">  MathJax.Hub.Config(&#123;<span class="attr">tex2jax</span>: &#123;<span class="attr">inlineMath</span>: [[<span class="string">'$'</span>,<span class="string">'$'</span>], [<span class="string">'\\('</span>,<span class="string">'\\)'</span>]]&#125;&#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span></span></div><div class="line">  <span class="attr">src</span>=<span class="string">"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span>&gt;<span class="undefined"></span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are</div><div class="line">$$x = &#123;-b \pm \sqrt&#123;b^2-4ac&#125; \over 2a&#125;.$$</div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are<br>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$<br>转载自：<a href="http://mathjax-chinese-doc.readthedocs.io/en/latest/start.html" target="_blank" rel="external">MathJax Chinese Doc 2.0 documentation</a></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h3 id=&quot;TeX和LaTeX&quot;&gt;&lt;a href=&quot;#TeX和LaTeX&quot; class=&quot;headerlink&quot; title=&quot;TeX和LaTeX&quot;&gt;&lt;/a&gt;TeX和LaTeX&lt;/h3&gt;&lt;p&gt;使用 TeX 和 LaTeX 格式的公式使用 公式分隔符 环绕公式，即告知MathJ
-    
-    </summary>
-    
-      <category term="前端" scheme="http://bluebells.tk/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="LaTeX" scheme="http://bluebells.tk/tags/LaTeX/"/>
-    
-      <category term="Mathjax" scheme="http://bluebells.tk/tags/Mathjax/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://bluebells.tk/2016/05/06/hello-world/"/>
-    <id>http://bluebells.tk/2016/05/06/hello-world/</id>
-    <published>2016-05-06T15:37:01.138Z</published>
-    <updated>2017-01-31T05:57:24.533Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://bluebells.tk/2016/05/06/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -216,14 +131,8 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-  </entry>
   
-</feed>
+  
+</search>
