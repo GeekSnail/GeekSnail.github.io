@@ -838,6 +838,7 @@ pre {
   #ds-thread #ds-reset .ds-service-list a:hover {
     color: #fff;
     background: #666;
+    /*#02ba0a;*/
     /*added on 2017-2-1*/
     padding-left: 4px;
     width: 40px;
