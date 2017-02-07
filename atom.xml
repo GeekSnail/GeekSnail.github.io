@@ -4,6 +4,42 @@
   
     
     <entry>
+      <title><![CDATA[Canvas——马赛克效果]]></title>
+      <url>http://bluebells.tk/2017/02/07/canvasPixelArray-mosaic/</url>
+      <content type="html"><![CDATA[<h3 id="基础知识："><a href="#基础知识：" class="headerlink" title="基础知识："></a>基础知识：</h3><ul>
+<li><strong>getImageData(x, y, width, height)</strong>——画布中访问像素数据，返回一个2D渲染上下文<strong>ImageData对象</strong>，它包含3个属性：width、height、<strong>data</strong>(存储全部像素信息CanvasPixelArray)。<a id="more"></a><br>$$像素栅格\\<br>\begin{array}{|c|c|}<br>\hline 0 &amp; 4 &amp; 8 \\<br>\hline 12 &amp; 16 &amp; 20 \\<br>\hline 24 &amp; 28 &amp; 32 \\<br>\hline<br>\end{array}<br>$$$$CanvasPixelArray\\<br>\begin{array}{|c|c|}<br>\hline 0 &amp;4 &amp;8 &amp;12 &amp;16 &amp;20 &amp;…\\<br>\hline<br>\end{array}<br>$$$$<br>\begin{array}{|c|}<br>\hline 0 \\<br>\hline<br>\end{array}=<br>\begin{array}{|cccc|}<br>\hline 0 &amp;1 &amp;2 &amp;3 \\<br>r, &amp;g, &amp;b, &amp;a \\<br>\hline<br>\end{array}…$$</li>
+<li><strong>createImageData(width, height)</strong>——创建像素数据，返回一个<strong>ImageData对象</strong>，包含的3个属性同上。</li>
+<li><strong>putImageData(ImageData, x, y)</strong>——绘制像素数据</li>
+<li><strong>Math.floor(Math.random()*255)</strong>——计算随机颜色值。</li>
+</ul>
+<h3 id="实现方法："><a href="#实现方法：" class="headerlink" title="实现方法："></a>实现方法：</h3><ul>
+<li>创建一个新像素区域，获取像素数据</li>
+<li>分割马赛克块，计算每个块的像素大小</li>
+<li>遍历块<ul>
+<li>计算随机颜色</li>
+<li>遍历每个块的像素<ul>
+<li>计算以0开始的像素位置坐标(x,y)</li>
+<li>结合像素坐标和整个像素区域宽高计算像素的颜色值开始位置</li>
+<li>设置像素的4个颜色值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>绘制像素</li>
+</ul>
+<h3 id="实现步骤："><a href="#实现步骤：" class="headerlink" title="实现步骤："></a>实现步骤：</h3><h4 id="1、基础性工作"><a href="#1、基础性工作" class="headerlink" title="1、基础性工作"></a>1、基础性工作</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> context = <span class="built_in">document</span>.getElementById(<span class="string">'myCanvas'</span>).getContext(<span class="string">"2d"</span>);</div><div class="line"><span class="keyword">var</span> imageData = context.createImageData(<span class="number">400</span>, <span class="number">400</span>); <span class="comment">// 创建像素数据</span></div><div class="line"><span class="keyword">var</span> pixels = imageData.data; <span class="comment">// CanvasPixelArray</span></div><div class="line"></div><div class="line"><span class="comment">// 马赛克块的个数</span></div><div class="line"><span class="keyword">var</span> numTileRows = <span class="number">4</span>,</div><div class="line">    numTileCols = <span class="number">4</span>;</div><div class="line"><span class="comment">// 每个块的尺寸</span></div><div class="line"><span class="keyword">var</span> tileWidth = imageData.width / numTileCols,</div><div class="line">    tileHeight = imageData.height / numTileRows;</div><div class="line">	</div><div class="line"><span class="comment">// 遍历……</span></div><div class="line"></div><div class="line">context.putImageData(imageData, <span class="number">0</span>, <span class="number">0</span>); <span class="comment">// 绘制像素数据</span></div></pre></td></tr></table></figure>
+<h4 id="2、遍历块并修改颜色值，块内遍历像素"><a href="#2、遍历块并修改颜色值，块内遍历像素" class="headerlink" title="2、遍历块并修改颜色值，块内遍历像素"></a>2、遍历块并修改颜色值，块内遍历像素</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> r=<span class="number">0</span>; r&lt;numTileRows; r++) &#123; <span class="comment">// 块行4</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> c=<span class="number">0</span>; c&lt;numTileCols; c++) &#123; <span class="comment">// 块列4</span></div><div class="line">        <span class="comment">// 设置每个块的颜色</span></div><div class="line">        <span class="keyword">var</span> red = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">255</span>),</div><div class="line">            green = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">255</span>),</div><div class="line">            blue = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">255</span>);</div><div class="line">        <span class="comment">// 遍历像素	</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> tr=<span class="number">0</span>; tr&lt;tileHeight; tr++) &#123; <span class="comment">// 像素行100</span></div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> tc=<span class="number">0</span>; tc&lt;tileWidth; tc++) &#123; <span class="comment">// 像素列100</span></div><div class="line">            <span class="comment">// </span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在得到的是所访问的块的行和列(r和c)，以及块中所处的像素的行和列(tr和tc)，这些变量不足以访问<strong>CanvasPixelArray</strong>中的像素。</p>
+<h4 id="3、计算以0开始的像素位置坐标-x-y"><a href="#3、计算以0开始的像素位置坐标-x-y" class="headerlink" title="3、计算以0开始的像素位置坐标(x,y)"></a>3、计算以0开始的像素位置坐标(x,y)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 计算像素的真实位置</span></div><div class="line"><span class="keyword">var</span> trueX = c * tileWidth + tc,</div><div class="line">    trueY = r * tileHeight + tr;</div></pre></td></tr></table></figure>
+<h4 id="4、计算像素颜色值索引位置，赋值rgba"><a href="#4、计算像素颜色值索引位置，赋值rgba" class="headerlink" title="4、计算像素颜色值索引位置，赋值rgba"></a>4、计算像素颜色值索引位置，赋值rgba</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 计算像素红色值索引位置</span></div><div class="line"><span class="keyword">var</span> pos = ((trueY<span class="number">-1</span>) * (imageData.width * <span class="number">4</span>)) + ((trueX<span class="number">-1</span>) * <span class="number">4</span>);</div><div class="line">pixels[pos] = red; <span class="comment">// r</span></div><div class="line">pixels[pos+<span class="number">1</span>] = green; <span class="comment">// g</span></div><div class="line">pixels[pos+<span class="number">2</span>] = blue; <span class="comment">// b</span></div><div class="line">pixels[pos+<span class="number">3</span>] = <span class="number">255</span>; <span class="comment">// alpha</span></div></pre></td></tr></table></figure>
+<h3 id="最终效果："><a href="#最终效果：" class="headerlink" title="最终效果："></a>最终效果：</h3><script async src="//jsfiddle.net/bluebells/nk6xg4tq/embed/js,html,result/"></script>
+
+<hr>
+<p>参考资料：<a href="http://www.apress.com/cn/book/9781430232919" target="_blank" rel="external">《Foundation HTML5 Canvas For Games and Entertainment》Chapter 5 Authors: Hawkes, Rob</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Canvas——复杂路径]]></title>
       <url>http://bluebells.tk/2017/02/05/canvas-complex-path/</url>
       <content type="html"><![CDATA[<h3 id="将多个路径连接在一起"><a href="#将多个路径连接在一起" class="headerlink" title="将多个路径连接在一起"></a>将多个路径连接在一起</h3><ul>
