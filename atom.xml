@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title><![CDATA[Canvas-image-pixelation]]></title>
+      <title><![CDATA[Canvas——图片像素化]]></title>
       <url>http://bluebells.tk/2017/03/03/canvas-image-pixelation/</url>
       <content type="html"><![CDATA[<h3 id="基础知识："><a href="#基础知识：" class="headerlink" title="基础知识："></a>基础知识：</h3><ul>
 <li><strong>drawImage(image, x, y, [width], [height])</strong>——绘制图像，参数image可以是HTML img元素、HTML5 canvas元素或video元素。</li>
