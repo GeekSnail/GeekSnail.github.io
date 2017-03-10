@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title><![CDATA[跨交换机不同VLAN间的通信]]></title>
+      <url>http://bluebells.tk/2017/03/10/across-switches-diff-vlan/</url>
+      <content type="html"><![CDATA[<h3 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h3><p>利用三层交换机的路由功能，通过识别数据包的IP地址，查找路由表进行转发。三层交换机利用直连路由可以实现不同的VLAN间的访问。三层交换机给接口配置IP地址采用SVI（交换虚拟接口）的方式实现VLAN 间互连。SVI是指为交换机中的VLAN 创建虚拟接口，并且配置IP地址。</p>
+<h3 id="实验拓扑"><a href="#实验拓扑" class="headerlink" title="实验拓扑"></a>实验拓扑</h3><p><img src="http://okmotl0nl.bkt.clouddn.com/layer-3-switch-across-diff-vlan1.png" alt=""></p>
+<h3 id="实验设备"><a href="#实验设备" class="headerlink" title="实验设备"></a>实验设备</h3><ul>
+<li>DCRS三层交换机、DCS二层交换机各1台；</li>
+<li>PC机2台，电源线、console线揽各2条，网线为正线2条，反线1条。</li>
+</ul>
+<h3 id="实验要求"><a href="#实验要求" class="headerlink" title="实验要求"></a>实验要求</h3><ul>
+<li>PC1、PC2设置IP地址，使用ping命令测试他们之间的连通性。</li>
+<li>按照拓扑图创建VLAN，加入端口到VLAN中；测试PC1、PC2间连通性。</li>
+<li>将交换机之间的链路配置为中继链路，将VLAN100、200加入许可列表。</li>
+</ul>
+<h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h3><h4 id="物理设备连接"><a href="#物理设备连接" class="headerlink" title="物理设备连接"></a>物理设备连接</h4><p>（1）分别将两交换机配置线的一端与console口连接,另一端与PC1、PC2的串口相连。<br>（2）网线将PC1与DCRS交换机f0/1、PC2与DCS交换机f0/1相连，剩下一条<strong>反线</strong>连接两台交换机的f0/24（Trunk）。</p>
+<h4 id="测试机配置"><a href="#测试机配置" class="headerlink" title="测试机配置"></a>测试机配置</h4><p>PC1，ip 192.168.10.2 gateway 192.168.10.1<br>PC2，ip 192.168.20.2 gateway 192.168.20.1<br>测试 PC1 ping PC2，结果：ping不通，因为它们在不同的网络段，而不同网络的主机间访问必须通过路由实现。</p>
+<h4 id="DCRS-配置"><a href="#DCRS-配置" class="headerlink" title="DCRS 配置"></a>DCRS 配置</h4><p>（1）创建vlan100, vlan200；<br><img src="http://okmotl0nl.bkt.clouddn.com/layer-3-switch-across-diff-vlan2.png" alt=""><br>（2）对VLAN100添加端口组成员1-6；VLAN200添加端口组成员7-12；<br>（3）对交换机24口打标记，作为汇聚端口<br><img src="http://okmotl0nl.bkt.clouddn.com/layer-3-switch-across-diff-vlan3.png" alt=""><br>（4）添加VLAN网关，运行show ip route验证路由配置；<br><img src="http://okmotl0nl.bkt.clouddn.com/layer-3-switch-across-diff-vlan4.png" alt=""></p>
+<h4 id="DCRS-配置-1"><a href="#DCRS-配置-1" class="headerlink" title="DCRS 配置"></a>DCRS 配置</h4><p>创建VLAN100，添加端口<strong>7-12</strong>；创建VLAN200，添加端口<strong>1-6</strong>。<br><img src="http://okmotl0nl.bkt.clouddn.com/layer-3-switch-across-diff-vlan6.png" alt=""><br><strong>测试结果</strong>：PC1与PC2可以互相ping通。<img src="http://okmotl0nl.bkt.clouddn.com/ping20dot2.png" alt=""><img src="http://okmotl0nl.bkt.clouddn.com/ping10dot2.png" alt=""></p>
+<hr>
+<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><p><strong>三层交换机</strong>，本质上就是带有路由功能的二层交换机。内置的路由模块与交换模块一样，也使用ASIC硬件处理路由。因此，与传统路由器相比，可以实现高速路由。并且，路由与交换模块是汇聚链接的，由于是内部链接，可以确保相当大的带宽。所以VLAN间的通信都使用三层交换机来实现。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[单臂路由实现不同VLAN间通信]]></title>
       <url>http://bluebells.tk/2017/03/10/router-on-a-stick-diff-vlan/</url>
       <content type="html"><![CDATA[<h3 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h3><p><strong>单臂路由</strong>（router-on-a-stick）是指在路由器的一个接口上通过配置子接口（或“逻辑接口”，并不存在真正物理接口）的方式，实现原来相互隔离的不同VLAN（虚拟局域网）之间的互联互通。PC1到PC2发送的数据包是经过路由器，从路由器f0/0入，再从f0/0出，所以称之为单臂路由。</p>
@@ -17,7 +40,7 @@
 <li>在交换机上按照拓扑图创建VLAN，并将相应的端口加入VLAN中。</li>
 <li>配置Trunk端口实现不同VLAN间的通信。</li>
 </ul>
-<h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h3><h4 id="物理设备连接"><a href="#物理设备连接" class="headerlink" title="物理设备连接"></a>物理设备连接</h4><p>（1）将交换机与路由器的配置线的一端与各自的console口连接,另一端分别与与PC1、PC2的串口相连。<br>（2）两条网线将PC1与交换机f0/1、PC2与交换机f0/6相连，剩下一条网线连接路由器的TP0端口和交换机的f0/24（Trunk）。</p>
+<h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h3><h4 id="物理设备连接"><a href="#物理设备连接" class="headerlink" title="物理设备连接"></a>物理设备连接</h4><p>（1）将交换机与路由器的配置线的一端与各自的console口连接,另一端分别与与PC1、PC2的串口相连。<br>（2）两条网线将PC1与交换机f0/1、PC2与交换机f0/6相连，剩下一条网线<strong>连接路由器的TP0端口和交换机的f0/24</strong>（Trunk）。</p>
 <h4 id="测试机配置"><a href="#测试机配置" class="headerlink" title="测试机配置"></a>测试机配置</h4><p>PC1，ip 192.168.10.2 gateway 192.168.10.1<br>PC2，ip 192.168.20.2 gateway 192.168.20.1<br>测试 PC1 ping PC2，结果：ping不通，因为它们在不同的网络段，而不同网络的主机间访问必须通过路由实现。</p>
 <h4 id="DCS-配置"><a href="#DCS-配置" class="headerlink" title="DCS 配置"></a>DCS 配置</h4><p>（1）创建vlan100, 端口组成员1-5；创建vlan200, 端口组成员6-10<br>（2）对交换机24口打标记，作为汇聚端口<br><img src="http://okmotl0nl.bkt.clouddn.com/route-on-a-stick2.png" alt=""></p>
 <h4 id="DCR-配置"><a href="#DCR-配置" class="headerlink" title="DCR 配置"></a>DCR 配置</h4><p>（1）配置路由器 f0/0 的逻辑子接口；<br>（2）为子接口封装802.1Q协议、VLAN标识；<br>（3）为子接口划分网关地址；<br><img src="http://okmotl0nl.bkt.clouddn.com/route-on-a-stick3.png" alt="">（4）运行show ip route察看路由表。<br><img src="http://okmotl0nl.bkt.clouddn.com/route-on-a-stick4.png" alt=""><br><strong>实验结果</strong>：PC1与PC2可以互相ping通。<img src="http://okmotl0nl.bkt.clouddn.com/ping20dot2.png" alt=""><img src="http://okmotl0nl.bkt.clouddn.com/ping10dot2.png" alt=""></p>
