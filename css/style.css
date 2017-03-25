@@ -620,7 +620,7 @@ pre {
 #process .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label {
   position: relative;
   background: #eee;
-  padding: 30px;
+  padding: 20px;
   margin-left: 60px;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
