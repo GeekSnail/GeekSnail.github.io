@@ -91,8 +91,11 @@ div {
       #header #nav-menu a:hover {
         border-bottom-color: #444; }
       #header #nav-menu a.current {
-        border: 1px solid #ddd;
-        border-bottom-color: #fff; }
+        /*border: 1px solid #ddd;
+				border-bottom-color: #fff;*/
+        border: none;
+        background: #78b5e8;
+        color: #fff; }
 
 #sidebar {
   border-left: 1px solid #ddd;
@@ -171,7 +174,7 @@ div {
     font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif; }
     .post .post-title a {
       /*color: #555;*/
-      color: #3b6fcd; }
+      color: #3580c0; }
       .post .post-title a:hover {
         color: #01579f; }
   .post .post-meta {
@@ -465,7 +468,7 @@ pre {
 * Process timelime, (homepage)
 ******************************************************* */
 #process {
-  padding: 80px 0;
+  padding: 30px 0;
   background-color: #fff; }
 
 #process .col-md-2 i {
@@ -618,7 +621,7 @@ pre {
 
 #process .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label {
   position: relative;
-  background: #eee;
+  background: #eaedf0;
   padding: 20px;
   margin-left: 60px;
   -webkit-background-clip: padding-box;
@@ -626,7 +629,8 @@ pre {
   background-clip: padding-box;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  border-radius: 3px; }
+  border-radius: 3px;
+  text-align: initial; }
 
 #process .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label:after {
   content: '';
